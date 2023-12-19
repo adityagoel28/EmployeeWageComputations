@@ -1,20 +1,30 @@
 package EmployeeWageComputations;
 
-public class EmployeeWageComputation {
+import java.util.Random;
 
-    // UC1: Check Attendance
-    public void checkAttendance() {
-        int attendance = (int) (Math.random() * 2);
-        if (attendance == 1) {
-            System.out.println("Employee is Present");
-        } else {
-            System.out.println("Employee is Absent");
+class EmployeeWageComputation {
+    static final int WAGE_PER_HOUR = 20;
+    static final int FULL_DAY_HOUR = 8;
+
+    enum Status {
+        FULL_TIME, ABSENT;
+    }
+
+    public static Status getAttendance() {
+        int chance = new Random().nextInt(3); // Generates a random number between 0 and 2
+        return chance == 0 ? Status.ABSENT : Status.FULL_TIME;
+    }
+
+    public static int computeDailyWage(Status attendanceStatus) {
+        switch (attendanceStatus) {
+            case FULL_TIME:
+                return WAGE_PER_HOUR * FULL_DAY_HOUR;
+            default:
+                return 0;
         }
     }
 
     public static void main(String[] args) {
-        EmployeeWageComputation ewc = new EmployeeWageComputation();
-
-        ewc.checkAttendance();
+        System.out.println("Welcome to Employee Wage Computation Program");
     }
 }
