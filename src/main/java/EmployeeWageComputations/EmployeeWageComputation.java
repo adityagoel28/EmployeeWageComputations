@@ -6,7 +6,6 @@ class EmployeeWageComputation {
     static final int WAGE_PER_HOUR = 20;
     static final int FULL_DAY_HOUR = 8;
     static final int PART_TIME_HOUR = 4;
-    static final int MAX_WORKING_HOURS = 100;
     static final int MAX_WORKING_DAYS = 20;
 
     enum Status {
@@ -34,7 +33,7 @@ class EmployeeWageComputation {
         int totalWorkingHours = 0;
         int workingDays = 0;
 
-        while (workingDays < MAX_WORKING_DAYS && totalWorkingHours < MAX_WORKING_HOURS) {
+        while (workingDays < MAX_WORKING_DAYS) {
             Status attendanceStatus = getAttendance();
             int dailyWage = computeDailyWage(attendanceStatus);
             totalWage += dailyWage;
@@ -43,10 +42,6 @@ class EmployeeWageComputation {
             // Output for each day
             System.out.println("Day " + (workingDays + 1) + ": " + attendanceStatus + " - Wage Earned: " + dailyWage);
             workingDays++;
-
-            if (totalWorkingHours >= MAX_WORKING_HOURS) {
-                break;
-            }
         }
 
         return totalWage;
