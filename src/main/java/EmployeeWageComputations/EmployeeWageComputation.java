@@ -2,6 +2,7 @@ package EmployeeWageComputations;
 
 import java.util.Random;
 
+
 class EmployeeWageComputation {
     static final int WAGE_PER_HOUR = 20;
     static final int FULL_DAY_HOUR = 8;
