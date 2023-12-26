@@ -2,6 +2,7 @@ package EmployeeWageComputations;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.List;
 
 public class EmpWageBuilder implements IEmployeeWageComputation {
     private Map<String, Company> companies;
@@ -30,5 +31,11 @@ public class EmpWageBuilder implements IEmployeeWageComputation {
     public int getTotalWage(String companyName) {
         Company company = companies.get(companyName);
         return company != null ? company.getTotalWage() : 0;
+    }
+
+    // getDailyWage() method
+    public List<Integer> getDailyWage(String companyName) {
+        Company company = companies.get(companyName);
+        return company != null ? company.getDailyWages() : null;
     }
 }
