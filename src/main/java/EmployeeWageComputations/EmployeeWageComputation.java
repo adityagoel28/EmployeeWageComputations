@@ -26,7 +26,7 @@ public class EmployeeWageComputation {
         System.out.println("Daily Wage for CompanyA: " + empWageBuilder.getDailyWage("CompanyA"));
         System.out.println("Daily Wage for CompanyB: " + empWageBuilder.getDailyWage("CompanyB"));
 
-        System.out.println("Total Wage for CompanyA: " + empWageBuilder.getTotalWage("CompanyA"));
+        System.out.println("Total Wage for CompanyA: " + empWageBuilder.getTotalWage("CompanyA")); // querying total wage for a company
         System.out.println("Total Wage for CompanyB: " + empWageBuilder.getTotalWage("CompanyB"));
     }
 }
