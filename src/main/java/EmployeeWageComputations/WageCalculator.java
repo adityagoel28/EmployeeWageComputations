@@ -20,6 +20,7 @@ public class WageCalculator {
         while (workingDays < company.getMaxWorkingDays() && totalWorkingHours < company.getMaxWorkingHours()) {
             EmployeeWageComputation.Status attendanceStatus = EmployeeWageComputation.getAttendance();
             int dailyWage = computeDailyWage(company, attendanceStatus);
+            company.addDailyWage(dailyWage);
             totalWage += dailyWage;
             totalWorkingHours += (attendanceStatus == EmployeeWageComputation.Status.FULL_TIME) ? EmployeeWageComputation.FULL_DAY_HOUR : (attendanceStatus == EmployeeWageComputation.Status.PART_TIME ? EmployeeWageComputation.PART_TIME_HOUR : 0);
 
