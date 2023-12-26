@@ -17,14 +17,13 @@ public class EmployeeWageComputation {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
 
-        Company companyA = new Company("CompanyA", 20, 20, 100);
-        EmpWageBuilder builderA = new EmpWageBuilder(companyA);
-        builderA.computeWage();
-        System.out.println("\nTotal Monthly Wage for " + companyA.getName() + ": " + builderA.getTotalWage());
+        IEmployeeWageComputation empWageBuilder = new EmpWageBuilder();
+        empWageBuilder.addCompany("CompanyA", 20, 20, 100);
+        empWageBuilder.addCompany("CompanyB", 22, 22, 120);
 
-        Company companyB = new Company("CompanyB", 22, 22, 120);
-        EmpWageBuilder builderB = new EmpWageBuilder(companyB);
-        builderB.computeWage();
-        System.out.println("\nTotal Monthly Wage for " + companyB.getName() + ": " + builderB.getTotalWage());
+        empWageBuilder.computeWage(); // Computes wage for each company
+
+        System.out.println("Total Wage for CompanyA: " + empWageBuilder.getTotalWage("CompanyA"));
+        System.out.println("Total Wage for CompanyB: " + empWageBuilder.getTotalWage("CompanyB"));
     }
 }
